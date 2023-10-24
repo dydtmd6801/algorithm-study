@@ -36,4 +36,37 @@ public class Solution {
         return current;
     }
 
+    public boolean isMove(String[][] park, String routes, int[] current) {
+        String[] route = routes.split(" ");
+        if (route[0].equals("E")) {
+            for (int i = current[1] + 1; i <= current[1] + Integer.parseInt(route[1]); i++) {
+                if (park[current[0]][i].equals("X")) {
+                    return false;
+                }
+            }
+        }
+        if (route[0].equals("W")) {
+            for (int i = current[1] - 1; i >= current[1] - Integer.parseInt(route[1]); i--) {
+                if (park[current[0]][i].equals("X")) {
+                    return false;
+                }
+            }
+        }
+        if (route[0].equals("N")) {
+            for (int i = current[0] + 1; i <= current[0] + Integer.parseInt(route[1]); i++) {
+                if (park[i][current[1]].equals("X")) {
+                    return false;
+                }
+            }
+        }
+        if (route[0].equals("S")) {
+            for (int i = current[0] - 1; i >= current[0] - Integer.parseInt(route[1]); i--) {
+                if (park[i][current[1]].equals("X")) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 }
