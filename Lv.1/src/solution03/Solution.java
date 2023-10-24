@@ -69,4 +69,17 @@ public class Solution {
         return true;
     }
 
+    public int[] currentLocation(String[][] park) {
+        int[] current = new int[2];
+        for (int i = 0; i < park.length; i++) {
+            for (int j = 0; j < park[i].length; j++) {
+                if (park[i][j].equals("S")) {
+                    current[0] = i;
+                    current[1] = j;
+                }
+            }
+        }
+        return current;
+    }
+
 }
