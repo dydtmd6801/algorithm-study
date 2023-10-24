@@ -1,6 +1,7 @@
 package solution03;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -39,5 +40,14 @@ class SolutionTest {
         int[] result = {0, 0};
 
         assertThat(solution.solution(park, routes)).isEqualTo(result);
+    }
+
+    @DisplayName("공원 만들기 테스트")
+    @Test
+    void generateParkTest() {
+        String[] park = {"SOO", "OOO", "OOO"};
+        String[][] newPark = {{"S", "O", "O"}, {"O", "O", "O"}, {"O", "O", "O"}};
+
+        assertThat(solution.generatePark(park)).isEqualTo(newPark);
     }
 }
