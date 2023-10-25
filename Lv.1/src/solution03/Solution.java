@@ -25,7 +25,7 @@ public class Solution {
         int positionY = current[1];
         String direction = route[0];
         int distance = Integer.parseInt(route[1]);
-        switch(direction) {
+        switch (direction) {
             case "E":
                 positionY += distance;
                 break;
@@ -48,33 +48,55 @@ public class Solution {
 
     public boolean isMove(String[][] park, String routes, int[] current) {
         String[] route = routes.split(" ");
-        if (route[0].equals("E")) {
-            for (int i = current[1] + 1; i <= current[1] + Integer.parseInt(route[1]); i++) {
-                if (park[current[0]][i].equals("X")) {
+        String direction = route[0];
+        int distance = Integer.parseInt(route[1]);
+        int parkWidth = park[0].length;
+        int parkHeight = park.length;
+        int positionX = current[0];
+        int positionY = current[1];
+        switch (direction) {
+            case "E":
+                if (positionX + distance > parkWidth) {
                     return false;
                 }
-            }
-        }
-        if (route[0].equals("W")) {
-            for (int i = current[1] - 1; i >= current[1] - Integer.parseInt(route[1]); i--) {
-                if (park[current[0]][i].equals("X")) {
+                for (int i = positionX; i <= positionX + distance; i++) {
+                    if (park[positionX][i].equals("X")) {
+                        return false;
+                    }
+                }
+                break;
+            case "W":
+                if (positionX - distance < 0) {
                     return false;
                 }
-            }
-        }
-        if (route[0].equals("N")) {
-            for (int i = current[0] + 1; i <= current[0] + Integer.parseInt(route[1]); i++) {
-                if (park[i][current[1]].equals("X")) {
+                for (int i = positionX; i >= 0; i--) {
+                    if (park[positionX][i].equals("X")) {
+                        return false;
+                    }
+                }
+                break;
+            case "N":
+                if (positionY - distance < 0) {
                     return false;
                 }
-            }
-        }
-        if (route[0].equals("S")) {
-            for (int i = current[0] - 1; i >= current[0] - Integer.parseInt(route[1]); i--) {
-                if (park[i][current[1]].equals("X")) {
+                for (int i = positionY; i >= 0; i--) {
+                    if (park[i][positionY].equals("X")) {
+                        return false;
+                    }
+                }
+                break;
+            case "S":
+                if (positionY + distance < parkHeight) {
                     return false;
                 }
-            }
+                for (int i = positionY; i <= positionY + distance; i++) {
+                    if (park[i][positionY].equals("X")) {
+                        return false;
+                    }
+                }
+                break;
+            default:
+                return false;
         }
         return true;
     }
