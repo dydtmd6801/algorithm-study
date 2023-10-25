@@ -3,6 +3,10 @@ package solution03;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.*;
+
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -50,4 +54,21 @@ class SolutionTest {
 
         assertThat(solution.generatePark(park)).isEqualTo(newPark);
     }
+
+    @DisplayName("로봇 강아지 이동 테스트")
+    @ParameterizedTest
+    @MethodSource("moveInfo")
+    void moveTest(String routes, int[] current, int[] result) {
+        assertThat(solution.move(routes, current)).isEqualTo(result);
+    }
+
+    private static Stream<Arguments> moveInfo() {
+        return Stream.of(
+                Arguments.of("E 2", new int[]{0, 0}, new int[]{0, 2}),
+                Arguments.of("W 1", new int[]{1, 3}, new int[]{1, 2}),
+                Arguments.of("N 3", new int[]{3, 2}, new int[]{0, 2}),
+                Arguments.of("S 2", new int[]{1, 2}, new int[]{3, 2})
+        );
+    }
+
 }
