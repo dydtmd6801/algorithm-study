@@ -21,18 +21,28 @@ public class Solution {
 
     public int[] move(String routes, int[] current) {
         String[] route = routes.split(" ");
-        if (route[0].equals("E")) {
-            current[1] = current[1] + Integer.parseInt(route[1]);
+        int positionX = current[0];
+        int positionY = current[1];
+        String direction = route[0];
+        int distance = Integer.parseInt(route[1]);
+        switch(direction) {
+            case "E":
+                positionY += distance;
+                break;
+            case "W":
+                positionY -= distance;
+                break;
+            case "N":
+                positionX -= distance;
+                break;
+            case "S":
+                positionX += distance;
+                break;
+            default:
+                break;
         }
-        if (route[0].equals("W")) {
-            current[1] = current[1] - Integer.parseInt(route[1]);
-        }
-        if (route[0].equals("N")) {
-            current[0] = current[0] + Integer.parseInt(route[1]);
-        }
-        if (route[0].equals("S")) {
-            current[0] = current[0] - Integer.parseInt(route[1]);
-        }
+        current[0] = positionX;
+        current[1] = positionY;
         return current;
     }
 
