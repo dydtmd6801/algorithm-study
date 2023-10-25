@@ -71,4 +71,19 @@ class SolutionTest {
         );
     }
 
+    @DisplayName("이동 정보에 맞춰 이동 가능 여부 테스트")
+    @ParameterizedTest
+    @MethodSource("isMoveInfo")
+    void isMoveTest(String[][] park, String route, int[] current, boolean result) {
+        assertThat(solution.isMove(park, route, current)).isEqualTo(result);
+    }
+
+    private static Stream<Arguments> isMoveInfo() {
+        return Stream.of(
+                Arguments.of(new String[][]{{"S", "O", "O"}, {"X", "O", "O"}, {"O", "O", "O"}}, "S 2", new int[]{0, 0}, false),
+                Arguments.of(new String[][]{{"S", "O", "O"}, {"O", "O", "O"}, {"O", "O", "O"}}, "E 2", new int[]{0, 0}, true),
+                Arguments.of(new String[][]{{"S", "O", "O"}, {"O", "O", "O"}, {"O", "O", "O"}}, "W 2", new int[]{0, 0}, false)
+        );
+    }
+
 }
