@@ -86,4 +86,13 @@ class SolutionTest {
         );
     }
 
+    @DisplayName("현재 위치정보 테스트")
+    @Test
+    void getCurrentLocation() {
+        String[][] park = {{"O","O","X"},{"X","S","O"},{"O","O","O"},{"X","O","O"}};
+        int[] currentLocation = {1, 1};
+
+        assertThat(solution.currentLocation(park)).isEqualTo(currentLocation);
+    }
+
 }
