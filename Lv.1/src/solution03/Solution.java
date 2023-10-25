@@ -4,12 +4,18 @@ import java.util.Arrays;
 
 public class Solution {
     public int[] solution(String[] park, String[] routes) {
-        int[] answer = {};
-        return answer;
+        String[][] detailPark = generatePark(park);
+        int[] currentLocation = currentLocation(detailPark);
+        for (int i = 0; i < routes.length; i++) {
+            if (isMove(detailPark, routes[i], currentLocation)) {
+                currentLocation = move(routes[i], currentLocation);
+            }
+        }
+        return currentLocation;
     }
 
     public String[][] generatePark(String[] park) {
-        String[][] newPark = new String[park[0].length()][park.length];
+        String[][] newPark = new String[park.length][park[0].length()];
         for (int i = 0; i < park.length; i++) {
             String[] obstacle = park[i].split("");
             for (int j = 0; j < obstacle.length; j++) {
@@ -56,40 +62,40 @@ public class Solution {
         int positionY = current[1];
         switch (direction) {
             case "E":
-                if (positionX + distance > parkWidth) {
+                if (positionY + distance >= parkWidth) {
                     return false;
                 }
-                for (int i = positionX; i <= positionX + distance; i++) {
+                for (int i = positionY; i <= positionY + distance; i++) {
                     if (park[positionX][i].equals("X")) {
                         return false;
                     }
                 }
                 break;
             case "W":
-                if (positionX - distance < 0) {
+                if (positionY - distance < 0) {
                     return false;
                 }
-                for (int i = positionX; i >= 0; i--) {
+                for (int i = positionY; i >= positionY - distance; i--) {
                     if (park[positionX][i].equals("X")) {
                         return false;
                     }
                 }
                 break;
             case "N":
-                if (positionY - distance < 0) {
+                if (positionX - distance < 0) {
                     return false;
                 }
-                for (int i = positionY; i >= 0; i--) {
+                for (int i = positionX; i >= positionX - distance; i--) {
                     if (park[i][positionY].equals("X")) {
                         return false;
                     }
                 }
                 break;
             case "S":
-                if (positionY + distance < parkHeight) {
+                if (positionX + distance >= parkHeight) {
                     return false;
                 }
-                for (int i = positionY; i <= positionY + distance; i++) {
+                for (int i = positionX; i <= positionX + distance; i++) {
                     if (park[i][positionY].equals("X")) {
                         return false;
                     }
