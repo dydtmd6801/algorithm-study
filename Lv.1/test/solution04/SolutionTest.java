@@ -4,6 +4,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class SolutionTest {
@@ -54,5 +59,13 @@ class SolutionTest {
         String[][] desktop = {{".","."},{".","#"}};
 
         assertThat(solution.generateDesktop(wallpaper)).isEqualTo(desktop);
+    }
+
+    @DisplayName("파일이 있는 좌표 찾아내기")
+    @Test
+    void findFileCoordinate() {
+        String[][] desktop = {{".", "#", ".", ".", "."}, {".", ".", "#", ".", "."}, {".", ".", ".", "#", "."}};
+
+        assertThat(solution.findFile(desktop)).contains(new int[]{0, 1}, new int[]{1, 2}, new int[]{2, 3});
     }
 }
