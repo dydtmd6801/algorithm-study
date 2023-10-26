@@ -1,7 +1,5 @@
 package solution03;
 
-import java.util.Arrays;
-
 public class Solution {
     public int[] solution(String[] park, String[] routes) {
         String[][] detailPark = generatePark(park);
