@@ -1,4 +1,8 @@
 package solution04;
 
-public class Solution {
+class Solution {
+    public int[] solution(String[] wallpaper) {
+        int[] answer = {};
+        return answer;
+    }
 }
