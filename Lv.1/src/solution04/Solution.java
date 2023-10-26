@@ -14,7 +14,7 @@ class Solution {
         for (int i = 0; i < wallpaper.length; i++) {
             String[] row = wallpaper[i].split("");
             for (int j = 0; j < wallpaper[i].length(); j++) {
-                desktop[i][j] = row[i];
+                desktop[i][j] = row[j];
             }
         }
         return desktop;
