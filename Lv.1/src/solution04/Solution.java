@@ -6,6 +6,9 @@ import java.util.List;
 class Solution {
     public int[] solution(String[] wallpaper) {
         int[] answer = {};
+        String[][] desktop = generateDesktop(wallpaper);
+        List<int[]> fileCoordinates = findFile(desktop);
+        answer = findMinMax(fileCoordinates);
         return answer;
     }
 
