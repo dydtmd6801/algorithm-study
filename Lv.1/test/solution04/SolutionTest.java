@@ -68,4 +68,14 @@ class SolutionTest {
 
         assertThat(solution.findFile(desktop)).contains(new int[]{0, 1}, new int[]{1, 2}, new int[]{2, 3});
     }
+
+    @DisplayName("파일이 있는 좌표 중 각 좌표마다 가장 작은 수, 큰 수 찾아내기")
+    @Test
+    void findMinMaxTest() {
+        List<int[]> fileCoordinates = new ArrayList<>(List.of(new int[]{1, 5}, new int[]{2, 6}, new int[]{2, 7}, new int[]{3, 3}));
+        int[] result = new int[]{1, 3, 4, 8};
+        // 가장 큰 수는 오른쪽 하단 좌표를 알기 위해 +1를 해준다.
+
+        assertThat(solution.findMinMax(fileCoordinates)).isEqualTo(result);
+    }
 }
