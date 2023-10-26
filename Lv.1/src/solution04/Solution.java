@@ -1,5 +1,8 @@
 package solution04;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class Solution {
     public int[] solution(String[] wallpaper) {
         int[] answer = {};
@@ -16,4 +19,18 @@ class Solution {
         }
         return desktop;
     }
+
+    public List<int[]> findFile(String[][] desktop) {
+        List<int[]> fileCoordinates = new ArrayList<>();
+        for (int i = 0; i < desktop.length; i++) {
+            for (int j = 0; j < desktop[i].length; j++) {
+                if (desktop[i][j].equals("#")) {
+                    int[] fileCoordinate = {i, j};
+                    fileCoordinates.add(fileCoordinate);
+                }
+            }
+        }
+        return fileCoordinates;
+    }
+
 }
