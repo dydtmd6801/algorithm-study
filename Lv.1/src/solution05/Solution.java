@@ -21,4 +21,13 @@ class Solution {
         }
         return wall;
     }
+
+    public int findStartPoint(HashMap wall) {
+        for (int i = 1; i <= wall.size(); i++) {
+            if(wall.get(i).equals("X")) {
+                return i;
+            }
+        }
+        return 0;
+    }
 }
