@@ -44,4 +44,10 @@ class Solution {
         }
         return wall;
     }
+
+    public int changeStartPoint(int wallLength, int brushLength, int startPoint) {
+        int overLength = startPoint + brushLength - wallLength;
+        int newStartPoint = startPoint - overLength;
+        return newStartPoint;
+    }
 }
