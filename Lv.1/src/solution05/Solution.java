@@ -39,7 +39,7 @@ class Solution {
     }
 
     public HashMap paint(HashMap wall, int brushLength, int startPoint) {
-        for (int i = startPoint; i <= brushLength; i++) {
+        for (int i = startPoint; i < startPoint + brushLength; i++) {
             wall.put(i, "O");
         }
         return wall;
