@@ -77,4 +77,24 @@ class SolutionTest {
 
         assertThat(solution.findStartPoint(wall)).isEqualTo(startPoint);
     }
+
+    @DisplayName("브러쉬 길이가 벽보다 길어지는지 판단 테스트")
+    @Test
+    void checkOverTheWallTestTrue() {
+        int wallLength = 10;
+        int paintLength = 4;
+        int startPoint = 3;
+
+        assertThat(solution.checkOverTheWall(wallLength, paintLength, startPoint)).isTrue();
+    }
+
+    @DisplayName("브러쉬 길이가 벽보다 길어지는지 판단 테스트")
+    @Test
+    void checkOverTheWallTestFalse() {
+        int wallLength = 10;
+        int paintLength = 4;
+        int startPoint = 8;
+
+        assertThat(solution.checkOverTheWall(wallLength, paintLength, startPoint)).isFalse();
+    }
 }
