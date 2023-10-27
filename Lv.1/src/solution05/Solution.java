@@ -30,4 +30,11 @@ class Solution {
         }
         return 0;
     }
+
+    public boolean checkOverTheWall(int wallLength, int paintLength, int startPoint) {
+        if (startPoint + paintLength < wallLength) {
+            return true;
+        }
+        return false;
+    }
 }
