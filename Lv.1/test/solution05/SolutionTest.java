@@ -64,4 +64,17 @@ class SolutionTest {
 
         assertThat(solution.generateWall(n, section)).isEqualTo(result);
     }
+
+    @DisplayName("페인트칠 시작점 찾기")
+    @Test
+    void findStartPointTest() {
+        HashMap wall = new HashMap();
+        wall.put(1, "O");
+        wall.put(2, "X");
+        wall.put(3, "X");
+        wall.put(4, "O");
+        int startPoint = 2;
+
+        assertThat(solution.findStartPoint(wall)).isEqualTo(startPoint);
+    }
 }
