@@ -55,7 +55,7 @@ class SolutionTest {
     @DisplayName("바탕화면 정보의 문자열로 2차원 배열 만들기")
     @Test
     void generateDesktopTest() {
-        String[] wallpaper = {"..", "#."};
+        String[] wallpaper = {"..", ".#"};
         String[][] desktop = {{".","."},{".","#"}};
 
         assertThat(solution.generateDesktop(wallpaper)).isEqualTo(desktop);
