@@ -1,7 +1,12 @@
 package solution05;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,7 +27,7 @@ class SolutionTest {
         int[] section = {2, 3, 6};
         int result = 2;
 
-        assertThat(solution.solution(n,m,section)).isEqualTo(result);
+        assertThat(solution.solution(n, m, section)).isEqualTo(result);
     }
 
     @Test
@@ -32,7 +37,7 @@ class SolutionTest {
         int[] section = {1, 3};
         int result = 1;
 
-        assertThat(solution.solution(n,m,section)).isEqualTo(result);
+        assertThat(solution.solution(n, m, section)).isEqualTo(result);
     }
 
     @Test
@@ -42,6 +47,21 @@ class SolutionTest {
         int[] section = {1, 2, 3, 6};
         int result = 4;
 
-        assertThat(solution.solution(n,m,section)).isEqualTo(result);
+        assertThat(solution.solution(n, m, section)).isEqualTo(result);
+    }
+
+    @DisplayName("n 미터의 벽 만들기")
+    @Test
+    void generateWallTest() {
+        int n = 4;
+        int[] section = {2, 4};
+
+        HashMap result = new HashMap();
+        result.put(1, "O");
+        result.put(2, "X");
+        result.put(3, "O");
+        result.put(4, "X");
+
+        assertThat(solution.generateWall(n, section)).isEqualTo(result);
     }
 }
