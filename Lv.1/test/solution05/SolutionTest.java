@@ -97,4 +97,26 @@ class SolutionTest {
 
         assertThat(solution.checkOverTheWall(wallLength, paintLength, startPoint)).isFalse();
     }
+
+    @DisplayName("페인트 칠하기")
+    @Test
+    void paintTest() {
+        HashMap wall = new HashMap();
+        wall.put(1, "O");
+        wall.put(2, "X");
+        wall.put(3, "X");
+        wall.put(4, "X");
+        wall.put(5, "O");
+        int brushLength = 2;
+        int startPoint = 2;
+
+        HashMap result = new HashMap();
+        result.put(1, "O");
+        result.put(2, "O");
+        result.put(3, "O");
+        result.put(4, "X");
+        result.put(5, "O");
+
+        assertThat(solution.paint(wall, brushLength, startPoint)).isEqualTo(result);
+    }
 }
