@@ -37,4 +37,11 @@ class Solution {
         }
         return false;
     }
+
+    public HashMap paint(HashMap wall, int brushLength, int startPoint) {
+        for (int i = startPoint; i <= brushLength; i++) {
+            wall.put(i, "O");
+        }
+        return wall;
+    }
 }
