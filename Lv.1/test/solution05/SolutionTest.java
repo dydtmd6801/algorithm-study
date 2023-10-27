@@ -119,4 +119,15 @@ class SolutionTest {
 
         assertThat(solution.paint(wall, brushLength, startPoint)).isEqualTo(result);
     }
+
+    @DisplayName("시작점 옮기기")
+    @Test
+    void changeStartPointTest() {
+        int wallLength = 10;
+        int brushLength = 4;
+        int startPoint = 8;
+        int result = 6;
+
+        assertThat(solution.changeStartPoint(wallLength, brushLength, startPoint)).isEqualTo(result);
+    }
 }
