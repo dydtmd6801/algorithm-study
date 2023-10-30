@@ -5,6 +5,15 @@ import java.util.HashMap;
 class Solution {
     public int solution(int n, int m, int[] section) {
         int answer = 0;
+        HashMap wall = generateWall(n, section);
+        while(!(findStartPoint(wall) == 0)) {
+            int startPoint = findStartPoint(wall);
+            if (!checkOverTheWall(wall.size(), m, startPoint)) {
+                startPoint = changeStartPoint(wall.size(), m, startPoint);
+            }
+            wall = paint(wall, m, startPoint);
+            answer++;
+        }
         return answer;
     }
 
