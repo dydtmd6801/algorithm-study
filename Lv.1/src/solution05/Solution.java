@@ -21,10 +21,12 @@ class Solution {
         HashMap wall = new HashMap();
         int unpainted = 0;
         for (int i = 1; i <= n; i++) {
-            if (section[unpainted] == i) {
-                wall.put(i, "X");
-                unpainted++;
-                continue;
+            if (unpainted < section.length) {
+                if (section[unpainted] == i) {
+                    wall.put(i, "X");
+                    unpainted++;
+                    continue;
+                }
             }
             wall.put(i, "O");
         }
